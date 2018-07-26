@@ -14,7 +14,7 @@ namespace _06_ByteBank
         static void Main(string[] args)
         {
 
-            AdicionaAcoes();
+            ExibeAcoes();
 
             Console.ReadLine();
         }
