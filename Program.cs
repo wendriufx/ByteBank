@@ -11,13 +11,104 @@ namespace _06_ByteBank
     {
         public static string stringDeConexao = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=app;Integrated Security=True;Pooling=False";
 
+        public static bool AppLigado = true;
+
         static void Main(string[] args)
         {
 
-            ExibeAcoes();
+            while (AppLigado)
+            {
+                MenuPrincipal();
+            }
+
+            //AdicionaAcoes();
 
             Console.ReadLine();
         }
+
+
+        #region Funcoes de Menu
+
+        public static void MenuAcoes()
+        {
+
+            Console.Clear();
+
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("1) Visualizar todas Ações");
+            Console.WriteLine("2) Cadastrar nova Ação");
+            Console.WriteLine("3) Voltar");
+
+            var decisao = Console.ReadLine();
+
+            switch (decisao)
+            {
+
+                case "1":
+                    ExibeAcoes();
+                    break;
+                case "2":
+                    AdicionaAcoes();
+                    break;
+                case "3":
+                    MenuPrincipal();
+                    break;
+
+                default:
+                    Console.WriteLine("Escolha uma das opções");
+                    break;               
+
+            }
+
+
+
+        }
+
+        public static void MenuPrincipal()
+        {
+            Console.Clear();
+
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("1) Ações");
+            Console.WriteLine("2) Clientes");
+            Console.WriteLine("9) Sair");
+
+            var decisao = Console.ReadLine();
+
+            switch (decisao)
+            {
+
+                case "1":
+                    MenuAcoes();
+                    break;
+                case "2":
+                    MenuCliente();
+                    break;
+                case "9":
+                    AppLigado = false;
+                    break;
+
+                default:
+                    Console.WriteLine("Escolha uma das opções");
+                    Console.ReadLine();
+                    break;
+
+            }
+
+
+        }
+
+        public static void MenuCliente()
+        {
+            
+        }
+
+        #endregion
+
+
+        #region Funcoes do Banco de Dados
+
+        #region Acoes
 
         private static void ExibeAcoes()
         {
@@ -65,7 +156,15 @@ namespace _06_ByteBank
                 
             }
 
-            ExibeAcoes();
+            MenuAcoes();
+
         }
+
+        #endregion
+
+
+
+        #endregion
+
     }
 }
