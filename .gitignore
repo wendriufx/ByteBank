@@ -3,3 +3,6 @@
 ################################################################################
 
 /obj/Debug
+/Properties/AssemblyInfo.cs
+/.vs/06-ByteBank/v15/Server/sqlite3
+/bin/Debug
